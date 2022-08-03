@@ -13,6 +13,7 @@
  */
 import UIKit
 
+// MARK: Strategy Interface
 protocol MovieRatingStrategy {
     var ratingServiceName: String {get}
     
@@ -20,10 +21,12 @@ protocol MovieRatingStrategy {
                      success: (_ rating: String, _ review: String) -> ())
 }
 
+//
 class RottenTomatoesClient: MovieRatingStrategy {
     var ratingServiceName =  "Rotten Tomatoes"
     
-    func fetchRating(for movieTitle: String, success: (String, String) -> ()) {
+    func fetchRating(for movieTitle: String,
+                     success: (String, String) -> ()) {
         let rating = "95%"
         let review = "It rocked!"
         success(rating, review)
@@ -40,7 +43,9 @@ class IMDbClient: MovieRatingStrategy {
     }
 }
 
+// MARK: Context
 class MovieRatingViewController: UIViewController {
+    
     var movieRatingClient: MovieRatingStrategy!
     
     @IBOutlet var movieTitleTextField: UITextField!
