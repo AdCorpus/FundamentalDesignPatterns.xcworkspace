@@ -37,3 +37,4 @@ public class MySingletonPlus {
 
 let mySingletonPlus = MySingletonPlus.shared
 let mySingletonPlus2 = MySingletonPlus()
+
